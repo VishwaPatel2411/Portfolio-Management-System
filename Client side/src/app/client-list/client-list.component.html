@@ -1,0 +1,45 @@
+<p class="text-right">Total Clients={{TotalClientsNum}} &nbsp;</p>
+<p class="text-right"> AUM= {{AUM}} &NonBreakingSpace;</p>
+<p class="text-right">Total Profit={{ClientProfit}} &nbsp;</p>
+
+<input type="text" class="search-tab" [(ngModel)]="searchWord" (input)="searchClient()" placeholder="Search by name">
+
+<div class="container" mat-elavation-z8 style="height: 400px;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name </th>
+                <th>Account Taken On</th>
+                <th >Initial Amount(INR)
+                    <button (click)="sortItemsBy('initialAmount')" class="btn btn-link" >
+                        <i class="fa" [ngClass]="{'fa-sort-asc': currentProperty === 'initialAmount' && currentOrder === 1,
+                                                'fa-sort-desc': currentProperty === 'initialAmount' && currentOrder === -1,
+                                                'fa-sort': currentProperty !== 'initialAmount'}"></i>
+                    </button>
+                </th>
+                <th>Phone</th>
+                <th>Mail Id</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+
+            <tr *ngFor="let client of clientsInfo2;let i = index" class="clientsInfo-item" cdkDrag>
+                <!--<td> {{client.id}} </td>-->
+                <td> {{client.name }} 
+                  <div (click)="showStocks(client.id)" class ="link-clor">⭆ Stocks</div>
+ </td>
+                
+                <td>{{client.accTakenDate}}</td>
+                <td>{{client.initialAmount}}</td>
+                <td>{{client.phone}}</td>
+                <td>{{client.mailId}}</td>
+                <td>
+                    <button (click)="updateClient(client.id)" class="btn-btn-info">Update</button>
+                    <button (click)="deleteClient(client.id)" class="btn-btn-danger"
+                        style="margin-left: 10px">Remove</button>
+                </td>
+
+   </tr></tbody></table></div>
+\

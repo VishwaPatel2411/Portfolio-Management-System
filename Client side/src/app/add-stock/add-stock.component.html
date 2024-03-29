@@ -1,0 +1,35 @@
+<div class="col-md-6 offset-md-3">
+    <h4>Stock Information</h4>
+    <form [formGroup]="addStockform" (ngSubmit)="onsubmit()">
+        <div class="form-group">
+            <label for="stockName">Stock Name</label>
+            <input formControlName="FStockName" type="text" class="form-control" id="stockName"
+                [(ngModel)]="stockInfo.stockName" name="stockName">
+
+        </div>
+
+        <div class="form-group">
+            <label for="buyQuantity">Buy Quantity</label>
+            <input formControlName="FQuantity" type="number" class="form-control" id="buyQuantity"
+                [(ngModel)]="stockInfo.buyQuantity" name="buyQuantity">
+
+
+        </div>
+
+        <div class="form-group">
+            <label for="buyprice">Price</label>
+            <input formControlName="FPrice" type="number" class="form-control" id="buyprice" [(ngModel)]="stockInfo.buyprice"
+                name="buyprice">
+
+        </div>
+
+        <div class="form-group">
+            <label for="buyDate">Buy On</label>
+            <input formControlName="FBuyOn" type="date" class="form-control" id="buyDate" [(ngModel)]="stockInfo.buyDate"
+                name="buyDate">
+
+        </div>
+
+        <button class="btn btn-success" type="submit">Save</button>
+    </form>
+</div>

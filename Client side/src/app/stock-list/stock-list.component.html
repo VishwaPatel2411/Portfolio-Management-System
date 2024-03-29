@@ -1,0 +1,97 @@
+<div class="space">
+    <blockquote>Hold Stocks
+
+        <span class="spacer"></span>
+        <a href="javascript:void(0)" (click)="navigateToAddStock(clientId)">Buy&nbsp;&nbsp;&nbsp;</a>
+        <button class ="btn-mergeBuy" (click)="mergeBuyColumns()">Merge</button>
+        <button class ="btn-mergeBuy" (click)="undoBuyColumns()"> &#9100;Undo</button>
+
+    </blockquote>
+</div>
+<div class="container" mat-elavation-z8>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width: 120px;">Stock Name
+                <button (click) = "SortByProperty('stockName')" class="btn btn-link">
+     <i class ="fa" [ngClass]="{ 'fa-sort-asc' : currentProperty === 'stockName'&& currentOrder===1,
+                             'fa-sort-desc': currentProperty==='stockName'&& currentOrder===-1,
+                             'fa-sort': currentProperty!=='stockName'
+}"></i>          
+                </button>              
+                </th>
+                <th style="width: 150px;">Quantity</th>
+                <th style="width: 85px;">Buying Price</th>
+                <th style="width: 200px;">Total Buying Price(INR)</th>
+                <th style="width: 100px;">Buy On</th>
+                <th style="width: 150px;">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stock of HoldStock" class="stockInfo-item">
+                <td>{{stock.stockName}}</td>
+                <td>{{stock.buyQuantity}}</td>
+                <td>{{stock.buyprice}}</td>
+                <td>{{stock.totalBuyPrice}}</td>
+                <td>{{stock.buyDate | date:'dd/MM/yyyy'}}</td>
+                <td>
+                    <button (click)="updateStock(stock.clientId,stock.stockId)" class="stk-updt-btn">Update</button>
+                    <button (click)="deleteStock(stock.stockId)" class="stk-dlt-btn">Delete</button>
+                    <button (click)="addToSold(stock.clientId,stock.stockId)" class='stk-add-ToSold-btn'>Sell</button>
+
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="sld-stk">
+    <blockquote>Sold Stocks &nbsp;
+        <button class ="btn-mergeBuy" (click)="mergeSellColumns()">Merge</button>
+         <button class ="btn-mergeBuy" (click)="undoSellColumns()"> &#9100;Undo</button>
+
+<p class="text-right">Total Profit={{StockProfit}} &nbsp;</p>
+    </blockquote>
+
+</div>
+<div class="container" mat-elavation-z8>
+    <table class="table table-striped">
+        <thead>
+            <th style="width: 120px;">Stock Name
+                <button (click)="SortByProperty1('stockName')" class="btn btn-link">
+                    <i class="fa" [ngClass]="{ 'fa-sort-asc' : currentProperty === 'stockName'&& currentOrder===1,
+                                             'fa-sort-desc': currentProperty==='stockName'&& currentOrder===-1,
+                                             'fa-sort': currentProperty!=='stockName'
+                }"></i>
+                </button>
+            </th>
+            <th style="width: 150px;">Quantity</th>
+            <th style="width: 85px;">Buying Price</th>
+            <th style="width: 85px;">Selling Price</th>
+            <th style="width: 150px;">Total Selling Price(INR)</th>
+            <th style="width: 85px;">Profit</th>
+            <th style="width: 100px;">Sold On</th>
+            <th style="width: 150px;">Action</th>
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let stock of SoldStock">
+                <td>{{stock.stockName}}</td>             
+                <td>{{stock.sellQuantity}}</td>
+                <td>{{stock.buyprice}}</td>
+                <td>{{stock.sellPrice}}</td>
+                <td>{{stock.totalSellPrice}}</td>
+                 <td>{{(stock.sellPrice -stock.buyprice)*stock.sellQuantity | number : '1.2-2'}}</td>
+
+                <td>{{stock.sellDate | date:'dd/MM/yyyy'}}</td>
+                <td>
+                    <button (click)="updateSoldStock(stock.clientId,stock.stockId)" class="stk-updt-btn">Update</button>
+                    <button (click)="deleteStock(stock.stockId)" class="stk-dlt-btn">Delete</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<router-outlet></router-outlet>

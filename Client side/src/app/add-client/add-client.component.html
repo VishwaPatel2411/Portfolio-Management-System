@@ -1,0 +1,56 @@
+<div class="col-md-6 offset-md-3">
+    <h4>Client Information</h4>
+    <form [formGroup]="addClientsform" (ngSubmit)="onsubmit()">
+        <div class="form-group">
+            <label>Name</label>
+            <input formControlName="FName" [ngClass]="{'is-invalid':submitted && 
+        addClientsform.controls.FName.errors}" type="text" class="form-control" id="name"
+                [(ngModel)]="clientsInfo.name" name="name">
+            <div *ngIf="submitted && addClientsform.controls.FName.errors" class="text-danger">
+                <div *ngIf="submitted && addClientsform.controls.FName.errors.required">
+                    Name is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Accout Taken On</label>
+            <input formControlName="FDate" [ngClass]="{'is-invalid':submitted && 
+        addClientsform.controls.FDate.errors}" type="date" class="form-control" id="accTakenDate"
+                [(ngModel)]="clientsInfo.accTakenDate" name="accTakenDate">
+        </div>
+        <div class="form-group">
+            <label>Initial Amount(INR)</label>
+            <input formControlName="FAMOUNT" [ngClass]="{'is-invalid':submitted && 
+        addClientsform.controls.FAMOUNT.errors}" type="text" class="form-control" id="initialAmount"
+                [(ngModel)]="clientsInfo.initialAmount" name="initialAmount">
+            <div *ngIf="submitted && addClientsform.controls.FAMOUNT.errors" class="text-danger">
+                <div *ngIf="submitted && addClientsform.controls.FAMOUNT.errors">
+                    Allow numbers only
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input formControlName="FPhone" [ngClass]="{'is-invalid':submitted && 
+        addClientsform.controls['FPhone'].errors}" type="text" class="form-control" id="phone"
+                [(ngModel)]="clientsInfo.phone" name="phone">
+            <div *ngIf="submitted && addClientsform.controls['FPhone'].errors" class="text-danger">
+                <div *ngIf="submitted && addClientsform.controls['FPhone'].errors">
+                    please enter numbers only
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Mail Id</label>
+            <input (input)="addClientsform.controls.FEmail.setValue(addClientsform.controls.FEmail.value.toLowerCase())"
+                formControlName="FEmail" type="text" class="form-control" id="mailId" [(ngModel)]="clientsInfo.mailId"
+                name="mailId">
+            <div *ngIf="submitted && addClientsform.controls.FEmail.errors" class="text-danger">
+                <div *ngIf="submitted && addClientsform.controls.FEmail.errors.email">
+                    Please enter valid email address
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success" type="submit">Save</button>
+    </form>
+</div>

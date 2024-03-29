@@ -1,0 +1,16 @@
+<div class="top">
+
+    <div class="margin" *ngFor="let item of items; let i = index">
+        <label>Quantity {{i + 1}}:&nbsp;</label>
+        <input type="number" id="quantity{{i}}" [(ngModel)]="item.quantity">
+        <label>&nbsp;Price {{i + 1}}:&nbsp;</label>
+        <input type="number" id="price{{i}}" [(ngModel)]="item.price">
+    </div>
+</div>
+<div class="margin2">
+    <button class ="btn-addItem" (click)="addItem()">Add Item </button>
+    <button class ="btn-avg " (click)="calculateAverage()">Calculate Average</button>
+</div>
+<div *ngIf="averageValue" class="margin3">
+    <p>Average Value: {{ averageValue }}</p>
+</div>

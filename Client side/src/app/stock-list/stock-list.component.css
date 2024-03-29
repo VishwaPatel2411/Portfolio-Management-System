@@ -1,0 +1,116 @@
+.space {
+    margin-left: 85px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    /* Adjust the value as needed */
+}
+
+.btn-mergeBuy{
+
+        background-color: #EA4C89;
+        border-radius: 8px;
+        border-style: none;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+        height: 35px;
+        line-height: 20px;
+        text-align: center;
+        transition: color 100ms;
+        vertical-align: baseline;
+        touch-action: manipulation;
+    margin-right: 15px;
+
+    .button-1:hover,
+    .button-1:focus {
+        background-color: #F082AC;
+    }}
+
+.spacer {
+    margin-left: 20px;
+}
+.stk-dlt-btn{
+    width: 45px;
+        /* Adjust the width and height as needed */
+        height: 30px;
+        border-radius: 80%;
+        /* This makes the button round */
+        background-color:#A31F34;
+        color: white; /* Text color */
+        font-size: 11px;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px;
+        /* Show pointer cursor on hover */
+}
+.stk-dlt-btn:hover{
+background-color:#c2463d;
+}
+
+.stk-updt-btn{
+    width: 45px;
+        height: 30px;
+        border-radius: 80%;
+        /* This makes the button round */
+        background-color: #87A96B;;
+        color: white;
+        font-size: 11px;
+        /* Text color */
+        border: none;
+        cursor: pointer;
+}
+
+.stk-updt-btn:hover{
+    background-color:#ACE1AF;}
+
+        .space2 {
+            font-size: 15px;
+            margin-bottom: 15px;
+            margin-top: 20px;
+            background-color:beige;
+                padding: 10px;
+                display: block;
+                    width: 100%;
+        }
+        .sld-stk{
+            margin-left: 85px;
+            font-size: 15px;
+                margin-bottom: 15px;
+                margin-top: 20px;
+        }
+        .stk-add-ToSold-btn{
+            width: 45px;
+                /* Adjust the width and height as needed */
+                height: 30px;
+                border-radius: 80%;
+                /* This makes the button round */
+                background-color:#0066b2;
+                color: white;
+                /* Text color */
+                font-size: 11px;
+                border: none;
+                cursor: pointer;
+                margin-left: 5px;
+        }
+                   .stk-add-ToSold-btn:hover {
+                       width: 45px;
+                       /* Adjust the width and height as needed */
+                       height: 30px;
+                       border-radius: 80%;
+                       /* This makes the button round */
+                       background-color: #318CE7;
+                       color: white;
+                       /* Text color */
+                       font-size: 11px;
+                       border: none;
+                       cursor: pointer;
+                       margin-left: 5px;
+                   }
+
+                   .text-right{
+                    margin-right: 70px;
+                   }
